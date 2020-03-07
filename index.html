@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>jhg</title>
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<title>index</title>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
     <link rel="stylesheet" href="css/animate.min.css">
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" media="screen">
     <link href="assets/css/simple-line-icons.css" rel="stylesheet" media="screen">
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	 
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<style type="text/css">
 		*{
 			padding: 0;
@@ -18,8 +19,8 @@
             color: #666;
         }
 		 #home {
-            background: url(http://up.enterdesk.org/pic/dc/a0/75/dca075109211e7fc7accc6cb22fbe125.jpg);
-            background-color: #222;
+            background: url(http://demo.cssmoban.com/cssthemes5/fbtp_2_Slidefolio/img/forest.jpg);
+            background-color: rgba(0,0,0,0.5); 
             background-attachment: fixed;
             background-repeat: no-repeat;
             background-position: 50% 50%;
@@ -30,10 +31,31 @@
             padding: 0;
 
         }
+          .navbar-custom .navbar-brand{
+            font-weight: 700;
+            font-size: 22px;
+            color: #222;
+         }
+         .navbar-custom .navbar-nav > li > a{
+            font-weight: 350;
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #222;
+        }
         #service{
             
         }
-        
+        .home-overlay {
+            background-color: rgba(44, 62, 80, 0.1);
+            background-image: url(http://demo.cssmoban.com/cssthemes5/fbtp_2_Slidefolio/img/overlay.png);
+            background-repeat:repeat; 
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 0;
+        }
         .intro {
         	color: white;
         	text-align: center;
@@ -155,9 +177,9 @@
      <section id="home" class="pfblock-image screen-height">
      <div class="home-overlay">
          	<div class="intro">
-     		<div class="start">Hello my name is 蒋洪光 and I am</div>
-     		<h1>FULL STACK WEB DEVELOPER</h1>
-     		<div class="start">creating modern and responsive Web Application</div>
+     		 
+     		<h1>HELLO WORLD</h1>
+     		 
      	</div>
      </div>
      <a href="#service">
@@ -169,11 +191,43 @@
      </a>
      </section>
      <!-- home end -->
-</body>
+     <header class="header">
 
+        <nav class="navbar navbar-custom" role="navigation">
+
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">J  H G </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="custom-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Works</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+            </div><!-- .container -->
+
+        </nav>
+
+    </header>
+</body>
 <script type="text/javascript">
 
-		 $(".screen-height").height($(window).height());
+       
+		$(".screen-height").height($(window).height());
 
 		$(window).resize(function(){
 			$(".screen-height").height($(window).height());
