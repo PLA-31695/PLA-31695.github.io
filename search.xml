@@ -114,4 +114,25 @@
         <tag>前端</tag>
       </tags>
   </entry>
+  <entry>
+    <title>浏览器向服务器发送请求的具体过程</title>
+    <url>/2022/02/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82%E7%9A%84%E5%85%B7%E4%BD%93%E8%BF%87%E7%A8%8B/</url>
+    <content><![CDATA[<h4 id="当输入url时，发生了什么"><a href="#当输入url时，发生了什么" class="headerlink" title="当输入url时，发生了什么"></a>当输入url时，发生了什么</h4><p>当我们在浏览器输入地址时，域名解析服务器会把我们输入的域名解析成IP（因为IP地址我们很难记得住，所以我们发明了域名），这个过程就叫DNS解析，其实DNS就是个存储域名和IP地址的一个数据库。有了IP地址后，我们就可以在互联网中找到指定的服务器了。</p>
+<h4 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h4><p>当我们找到服务器的时候，在发送数据之前我们还得建立TCP链接，因为建立TCP链接后，客户端和服务器端就可以建立通道以用来发送数据。于是就有了建立通道前的三次握手。<br><img src="https://t10.baidu.com/it/u=2590032753,2466318043&fm=173&app=49&f=JPEG?w=640&h=716&s=E7F239D247AFCCEA106594580300D072"><br>1.第一次握手<br>客户端发送SYN数据包表示请求连接<br>2.第二次握手<br>服务器响应SYN和ACK数据包表示同意建立连接<br>3.第三次握手<br>客户端发送ACK数据包表示成功连接。</p>
+<h4 id="发送HTTP请求"><a href="#发送HTTP请求" class="headerlink" title="发送HTTP请求"></a>发送HTTP请求</h4><p>当客户端建立连接之后，浏览器发送HTTP请求报文给服务器，报文的格式有请求行，请求头和请求数据组成.<br>1.请求行组成：请求方法，请求地址，HTTP协议版本<br>2.请求头组成：一些关于浏览器信息由键值对组成，一行一对。</p>
+<h4 id="响应HTTP请求"><a href="#响应HTTP请求" class="headerlink" title="响应HTTP请求"></a>响应HTTP请求</h4><p>当服务器收到HTTP报文时，会返回响应报文，报文的格式有状态行，响应头部和响用数据</p>
+<ol>
+<li>状态行最重要的就是三个数字<br>常见的状态码：<br>200 - 请求成功<br>301 - 资源（网页等）被永久转移到其它URL<br>404 - 请求的资源（网页等）不存在<br>500 - 内部服务器错误</li>
+</ol>
+<h4 id="页面渲染"><a href="#页面渲染" class="headerlink" title="页面渲染"></a>页面渲染</h4><p>浏览器在接受到服务器的响应后，页面开始进行渲染，其中包括HTML，CSS，和javascript等文件，客户端就可以看到页面的内容。</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>服务器</tag>
+        <tag>http</tag>
+      </tags>
+  </entry>
 </search>
