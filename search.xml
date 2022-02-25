@@ -94,4 +94,24 @@
         <category>前端</category>
       </categories>
   </entry>
+  <entry>
+    <title>keep-alive的使用和详解</title>
+    <url>/2022/02/24/keep-alive%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h4 id="keep-alive-是什么"><a href="#keep-alive-是什么" class="headerlink" title="keep-alive 是什么"></a>keep-alive 是什么</h4><p> keep-alive 是 Vue 的内置组件，当它包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。</p>
+<h4 id="keep-alive-有什么用"><a href="#keep-alive-有什么用" class="headerlink" title="keep-alive 有什么用"></a>keep-alive 有什么用</h4><p>  在组件切换过程中将状态保留在内存中，防止重复渲染DOM，减少加载时间及性能消耗，提高用户体验性</p>
+<h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><ol>
+<li>activated<br>在 keep-alive 组件激活时调用，该钩子函数在服务器端渲染期间不被调用。</li>
+<li>deactivated<br>在 keep-alive 组件停用时调用，该钩子在服务器端渲染期间不被调用。</li>
+</ol>
+<p><strong>注意：</strong> 只有组件被 keep-alive 包裹时，这两个生命周期函数才会被调用，如果作为正常组件使用，是不会被调用的，以及在 2.1.0 版本之后，使用 exclude 排除之后，就算被包裹在 keep-alive 中，这两个钩子函数依然不会被调用！另外，在服务端渲染时，此钩子函数也不会被调用。</p>
+<p>原文链接：<a href="https://blog.csdn.net/fu983531588/article/details/90321827">https://blog.csdn.net/fu983531588/article/details/90321827</a></p>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
 </search>
