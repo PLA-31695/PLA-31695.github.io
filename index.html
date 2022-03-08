@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -205,6 +205,146 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://pla-31695.github.io./2022/03/08/%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2github%E3%80%81gitee%E5%92%8Cconding/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Bug工程师">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="31695">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/08/%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2github%E3%80%81gitee%E5%92%8Cconding/" class="post-title-link" itemprop="url">同时部署github、gitee和conding</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-03-08 19:13:45 / Modified: 19:51:46" itemprop="dateCreated datePublished" datetime="2022-03-08T19:13:45+08:00">2022-03-08</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>工作原因需要用到coding，但是以前用的是github，所以需要在电脑上同时使用github和coding</p>
+<h4 id="配置SSh"><a href="#配置SSh" class="headerlink" title="配置SSh"></a>配置SSh</h4><p>首先需要生成三个.ssh文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ ssh-keygen -t rsa -C &quot;your email@example.com&quot;		</span><br></pre></td></tr></table></figure>
+<p>和以往不同的是现在不能一直回车，需要区分这三个文件（默认是id_rsa）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/Users/you/.ssh/id_rsa_github   //这是github的ssh文件</span><br><span class="line">/Users/you/.ssh/id_rsa_coding   //这是coding的ssh文件</span><br><span class="line">/Users/you/.ssh/id_rsa_gitee     //这是gitee的ssh文件</span><br></pre></td></tr></table></figure>
+<h4 id="创建config文件"><a href="#创建config文件" class="headerlink" title="创建config文件"></a>创建config文件</h4><p>接下来 我们创建一个config文件，写入一些相应的配置。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ touch config   //创建config文件</span><br></pre></td></tr></table></figure>
+<p>需要写入的配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Host github.com</span><br><span class="line">  HostName github.com</span><br><span class="line">  IdentityFile ~/.ssh/id_rsa_github   //这是ssh文件的路径</span><br><span class="line"> </span><br><span class="line">Host conding.com</span><br><span class="line">  HostName git.coding.net</span><br><span class="line">  IdentityFile ~/.ssh/id_rsa_coding</span><br><span class="line">  </span><br><span class="line">Host gitee.com</span><br><span class="line">  HostName gitee.com</span><br><span class="line">  IdentityFile ~/.ssh/id_rsa_gitee</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="将ssh加入agent"><a href="#将ssh加入agent" class="headerlink" title="将ssh加入agent"></a>将ssh加入agent</h4><p>我们先使用ssh-add -D将agent中的先删除，然后再依次添加。如果出现Could not open a connection to your authentication agent<br>则使用 ssh-agent bash</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add -D</span><br><span class="line">$ ssh-add id_rsa_github id_rsa_coding id_rsa_gitee</span><br></pre></td></tr></table></figure>
+<p>到此为止，我就完成了配置，接下来就可以把公钥填入相应的平台了<br>我们可以分别用ssh -T 命令来测试是否连通。<br>如果出现port 22 … connection time out 将端口号改为443就是了<br>具体如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">  HostName github.com</span><br><span class="line">  IdentityFile ~/.ssh/id_rsa_github   //这是ssh文件的路径</span><br><span class="line">  Port 443</span><br><span class="line"> </span><br><span class="line">Host conding.com</span><br><span class="line">  HostName git.coding.net</span><br><span class="line">  IdentityFile ~/.ssh/id_rsa_coding</span><br><span class="line">  Port 443</span><br><span class="line">  </span><br><span class="line">Host gitee.com</span><br><span class="line">  HostName gitee.com</span><br><span class="line">  IdentityFile ~/.ssh/id_rsa_gitee</span><br><span class="line">  Port 443</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://pla-31695.github.io./2022/02/27/%E5%85%B3%E4%BA%8Ereduce%E7%9A%84%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Bug工程师">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="31695">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/27/%E5%85%B3%E4%BA%8Ereduce%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">关于reduce的使用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-02-27 11:26:13" itemprop="dateCreated datePublished" datetime="2022-02-27T11:26:13+08:00">2022-02-27</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
