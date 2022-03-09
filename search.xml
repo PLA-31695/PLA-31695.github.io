@@ -158,4 +158,16 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">  HostName github.com</span><br><span class="line">  IdentityFile ~/.ssh/id_rsa_github   //这是ssh文件的路径</span><br><span class="line">  Port 443</span><br><span class="line"> </span><br><span class="line">Host conding.com</span><br><span class="line">  HostName git.coding.net</span><br><span class="line">  IdentityFile ~/.ssh/id_rsa_coding</span><br><span class="line">  Port 443</span><br><span class="line">  </span><br><span class="line">Host gitee.com</span><br><span class="line">  HostName gitee.com</span><br><span class="line">  IdentityFile ~/.ssh/id_rsa_gitee</span><br><span class="line">  Port 443</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
+  <entry>
+    <title>git提交时忽略dist文件夹</title>
+    <url>/2022/03/09/git%E6%8F%90%E4%BA%A4%E6%97%B6%E5%BF%BD%E7%95%A5dist%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
+    <content><![CDATA[<h4 id="忽略dist文件夹"><a href="#忽略dist文件夹" class="headerlink" title="忽略dist文件夹"></a>忽略dist文件夹</h4><p>由于我们向仓库提交文件时不需要dist和node_module文件夹，所以我们需要忽略这两个文件</p>
+<h4 id="创建-gitignore文件"><a href="#创建-gitignore文件" class="headerlink" title="创建.gitignore文件"></a>创建.gitignore文件</h4><p>以HbuildX为例我们创建一个自定义文件，取名为.gitignore</p>
+<h4 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h4><p>输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/unpackage/dist_</span><br><span class="line">/node_module</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>categories:github</tag>
+      </tags>
+  </entry>
 </search>
