@@ -170,4 +170,21 @@
         <tag>categories:github</tag>
       </tags>
   </entry>
+  <entry>
+    <title>vuex的使用</title>
+    <url>/2022/03/18/vuex%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h4 id="vuex的导入"><a href="#vuex的导入" class="headerlink" title="vuex的导入"></a>vuex的导入</h4><p>vuex是vue的一个插件，因此要先安装vuex</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i vuex@版本号</span><br></pre></td></tr></table></figure>
+<p>安装成功后，我们需要使用vuex这个插件，在store中index.js文件中如下代码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import Vue from &#x27;vue&#x27;</span><br><span class="line">import Vuex from &#x27;vuex&#x27;</span><br><span class="line">Vue.use(Vuex)</span><br></pre></td></tr></table></figure>
+<p>这样我们就可以在vm中使用store这个配置项</p>
+<h4 id="vuex-的原理"><a href="#vuex-的原理" class="headerlink" title="vuex 的原理"></a>vuex 的原理</h4><p><img src="https://vuex.vuejs.org/vuex.png"><br>可以看到，我们要修改state中的值，需要经过actions和mutations，也可以直接通过mutations修改，这三个对象我们需要放在vuex提供的Store构造函数来管理</p>
+<h4 id="创建store文件夹"><a href="#创建store文件夹" class="headerlink" title="创建store文件夹"></a>创建store文件夹</h4><p>我们要创建一个vuex上的一个名为Store的实例，并将其导出</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import Vuex from &#x27;vuex&#x27; //导入vuex</span><br><span class="line">export default new Vuex.Store()</span><br></pre></td></tr></table></figure>
+<p>在实例中添加我们需要使用的对象，常用的state，mutations，getters<br>完整代码如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import Vue from &#x27;vue&#x27;</span><br><span class="line">import Vuex from &#x27;vuex&#x27; //导入vuex</span><br><span class="line">Vue.use(Vuex)</span><br><span class="line">export default new Vuex.Store(&#123;</span><br><span class="line">    state:&#123;&#125;,</span><br><span class="line">    mutations:&#123;&#125;,</span><br><span class="line">    gettes:&#123;&#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="挂载到vm上"><a href="#挂载到vm上" class="headerlink" title="挂载到vm上"></a>挂载到vm上</h4><p>在main.js中引入store，并挂载到vm上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import store from &#x27;./store&#x27;</span><br><span class="line">//省略了代码</span><br><span class="line">const vue = new Vue(&#123;</span><br><span class="line">  store,</span><br><span class="line">  render: h =&gt; h(App)</span><br><span class="line">&#125;).$mount(&#x27;#app&#x27;)</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
 </search>

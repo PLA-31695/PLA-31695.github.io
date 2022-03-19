@@ -20,23 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"pla-31695.github.io.","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.10.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="31695">
-<meta property="og:url" content="https://pla-31695.github.io./tags/%E5%AF%BC%E8%88%AA/index.html">
+  <meta name="description" content="vuex的导入vuex是vue的一个插件，因此要先安装vuex 1npm i vuex@版本号 安装成功后，我们需要使用vuex这个插件，在store中index.js文件中如下代码 123import Vue from &amp;#x27;vue&amp;#x27;import Vuex from &amp;#x27;vuex&amp;#x27;Vue.use(Vuex) 这样我们就可以在vm中使用store这个配置项 vue">
+<meta property="og:type" content="website">
+<meta property="og:title" content="vuex的使用">
+<meta property="og:url" content="https://pla-31695.github.io./2022/03/18/vuex%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="31695">
+<meta property="og:description" content="vuex的导入vuex是vue的一个插件，因此要先安装vuex 1npm i vuex@版本号 安装成功后，我们需要使用vuex这个插件，在store中index.js文件中如下代码 123import Vue from &amp;#x27;vue&amp;#x27;import Vuex from &amp;#x27;vuex&amp;#x27;Vue.use(Vuex) 这样我们就可以在vm中使用store这个配置项 vue">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://vuex.vuejs.org/vuex.png">
+<meta property="article:published_time" content="2022-03-18T14:13:36.000Z">
+<meta property="article:modified_time" content="2022-03-18T16:18:12.583Z">
 <meta property="article:author" content="Bug工程师">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://vuex.vuejs.org/vuex.png">
 
 
-<link rel="canonical" href="https://pla-31695.github.io./tags/%E5%AF%BC%E8%88%AA/">
+<link rel="canonical" href="https://pla-31695.github.io./2022/03/18/vuex%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"tags/导航/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://pla-31695.github.io./2022/03/18/vuex%E7%9A%84%E4%BD%BF%E7%94%A8/","path":"2022/03/18/vuex的使用/","title":"vuex的使用"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Tag: 导航 | 31695</title>
+<title>vuex的使用 | 31695</title>
   
 
 
@@ -130,7 +136,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -143,6 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#vuex%E7%9A%84%E5%AF%BC%E5%85%A5"><span class="nav-number">1.</span> <span class="nav-text">vuex的导入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vuex-%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">vuex 的原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAstore%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">3.</span> <span class="nav-text">创建store文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%82%E8%BD%BD%E5%88%B0vm%E4%B8%8A"><span class="nav-number">4.</span> <span class="nav-text">挂载到vm上</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -204,50 +211,108 @@
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">导航
-          <small>Tag</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://pla-31695.github.io./2022/03/18/vuex%E7%9A%84%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Bug工程师">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="31695">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          vuex的使用
         </h1>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-03-18 22:13:36" itemprop="dateCreated datePublished" datetime="2022-03-18T22:13:36+08:00">2022-03-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-19 00:18:12" itemprop="dateModified" datetime="2022-03-19T00:18:12+08:00">2022-03-19</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h4 id="vuex的导入"><a href="#vuex的导入" class="headerlink" title="vuex的导入"></a>vuex的导入</h4><p>vuex是vue的一个插件，因此要先安装vuex</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i vuex@版本号</span><br></pre></td></tr></table></figure>
+<p>安装成功后，我们需要使用vuex这个插件，在store中index.js文件中如下代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#x27;vue&#x27;</span><br><span class="line">import Vuex from &#x27;vuex&#x27;</span><br><span class="line">Vue.use(Vuex)</span><br></pre></td></tr></table></figure>
+<p>这样我们就可以在vm中使用store这个配置项</p>
+<h4 id="vuex-的原理"><a href="#vuex-的原理" class="headerlink" title="vuex 的原理"></a>vuex 的原理</h4><p><img src="https://vuex.vuejs.org/vuex.png"><br>可以看到，我们要修改state中的值，需要经过actions和mutations，也可以直接通过mutations修改，这三个对象我们需要放在vuex提供的Store构造函数来管理</p>
+<h4 id="创建store文件夹"><a href="#创建store文件夹" class="headerlink" title="创建store文件夹"></a>创建store文件夹</h4><p>我们要创建一个vuex上的一个名为Store的实例，并将其导出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import Vuex from &#x27;vuex&#x27; //导入vuex</span><br><span class="line">export default new Vuex.Store()</span><br></pre></td></tr></table></figure>
+<p>在实例中添加我们需要使用的对象，常用的state，mutations，getters<br>完整代码如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#x27;vue&#x27;</span><br><span class="line">import Vuex from &#x27;vuex&#x27; //导入vuex</span><br><span class="line">Vue.use(Vuex)</span><br><span class="line">export default new Vuex.Store(&#123;</span><br><span class="line">    state:&#123;&#125;,</span><br><span class="line">    mutations:&#123;&#125;,</span><br><span class="line">    gettes:&#123;&#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="挂载到vm上"><a href="#挂载到vm上" class="headerlink" title="挂载到vm上"></a>挂载到vm上</h4><p>在main.js中引入store，并挂载到vm上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import store from &#x27;./store&#x27;</span><br><span class="line">//省略了代码</span><br><span class="line">const vue = new Vue(&#123;</span><br><span class="line">  store,</span><br><span class="line">  render: h =&gt; h(App)</span><br><span class="line">&#125;).$mount(&#x27;#app&#x27;)</span><br></pre></td></tr></table></figure>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-02-21T23:34:55+08:00"
-              content="2022-02-21">
-          02-21
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/02/21/%E8%92%8B%E6%B4%AA%E5%85%89/" itemprop="url">
-            <span itemprop="name">学习grid布局</span>
-          </a>
-      </div>
+    <footer class="post-footer">
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/09/git%E6%8F%90%E4%BA%A4%E6%97%B6%E5%BF%BD%E7%95%A5dist%E6%96%87%E4%BB%B6%E5%A4%B9/" rel="prev" title="git提交时忽略dist文件夹">
+                  <i class="fa fa-chevron-left"></i> git提交时忽略dist文件夹
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
+
 
 </div>
   </main>
