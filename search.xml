@@ -138,7 +138,31 @@
   <entry>
     <title>关于reduce的使用</title>
     <url>/2022/02/27/%E5%85%B3%E4%BA%8Ereduce%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="reduce的使用"><a href="#reduce的使用" class="headerlink" title="reduce的使用"></a>reduce的使用</h1><h4 id="reduce是干嘛的"><a href="#reduce是干嘛的" class="headerlink" title="reduce是干嘛的"></a>reduce是干嘛的</h4><p>reduce是js操作数组的方法，语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr.reduce(callback,[initialValue])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>callback 回调函数（包含四个参数）<ul>
+<li>累加器 （返回上次回调函数的返回值，或者是初始值[initialValue]）</li>
+<li>当前索引值 item</li>
+<li>当前索引 index</li>
+<li>调用reduce的数组</li>
+</ul>
+</li>
+<li>initialValue （可选，作为回调函数的第一个返回值，如果未传参，则累加器将数组的第一个值作为默认值，item直接跳转到第二个值）</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const arr = [&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;,&#x27;4&#x27;]</span><br><span class="line">        let sum = arr.reduce((acc,cur)=&gt; &#123;</span><br><span class="line">            console.log(&#x27;acc&#x27;+acc)</span><br><span class="line">            console.log(&#x27;cur&#x27;+cur)</span><br><span class="line">            return acc</span><br><span class="line">        &#125;)</span><br><span class="line">console.log(sum);</span><br></pre></td></tr></table></figure>
+<p>输出如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">acc1 </span><br><span class="line">cur2</span><br><span class="line">acc1</span><br><span class="line">cur3</span><br><span class="line">acc1</span><br><span class="line">cur4</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<p>难免有些抽象，我们可以和最常用的for循环来比较：</p>
+<ul>
+<li>两个函数的相同点都是遍历一个数组</li>
+<li>不同点在于for循环是将每个item项进行处理，比如 item+&#x3D;1 ，得到一个新的数组；<br>而reduce函数的主要精髓在于它的累加器，他最后返回的就是他的累加器；拿例子来说</li>
+<li>计算出数组中元素出现的次数<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var names = [&#x27;Alice&#x27;, &#x27;Bob&#x27;, &#x27;Tiff&#x27;, &#x27;Bruce&#x27;, &#x27;Alice&#x27;];</span><br><span class="line">let obj = names.reduce((res,item)=&gt;&#123;</span><br><span class="line">    if(item in res)&#123;</span><br><span class="line">        res[item]++</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        res[item] = 1</span><br><span class="line">    &#125;</span><br><span class="line">    return res</span><br><span class="line">&#125;,&#123;&#125;)</span><br><span class="line">console.log(obj)</span><br></pre></td></tr></table></figure>
+结果如下<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;Alice: 2, Bob: 1, Tiff: 1, Bruce: 1&#125;</span><br></pre></td></tr></table></figure>
+思路是统计个数需要用对象来保存，所以最后我们要得到一个对象，即要让reduce给我们返回一个对象，故我们需要设置空对象为初始值，然后遍历数组，返回的对象有该值就加1，没有就赋值为1。</li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title>同时部署github、gitee和conding</title>
@@ -185,6 +209,26 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import Vue from &#x27;vue&#x27;</span><br><span class="line">import Vuex from &#x27;vuex&#x27; //导入vuex</span><br><span class="line">Vue.use(Vuex)</span><br><span class="line">export default new Vuex.Store(&#123;</span><br><span class="line">    state:&#123;&#125;,</span><br><span class="line">    mutations:&#123;&#125;,</span><br><span class="line">    gettes:&#123;&#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h4 id="挂载到vm上"><a href="#挂载到vm上" class="headerlink" title="挂载到vm上"></a>挂载到vm上</h4><p>在main.js中引入store，并挂载到vm上</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import store from &#x27;./store&#x27;</span><br><span class="line">//省略了代码</span><br><span class="line">const vue = new Vue(&#123;</span><br><span class="line">  store,</span><br><span class="line">  render: h =&gt; h(App)</span><br><span class="line">&#125;).$mount(&#x27;#app&#x27;)</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>promise 的使用</title>
+    <url>/2022/04/25/promise-%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h4 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h4><pre><code>Promise是一种解决地狱回调的方案，有着非常优雅的写法，搭配async await可以让异步看起来像同步编程。
+</code></pre>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><pre><code>promise有三种状态：
+* pending  状态（进行中）
+* resolved 状态（成功）
+* rejected 状态（失败）
+</code></pre>
+<p> 值得注意的是Promise的状态改变就不会再变了</p>
+<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><pre><code>创建Promise实例
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let promise = new Promise((resolved,rejected)=&gt;&#123;</span><br><span class="line">	if(&#x27;操作成功&#x27;)&#123;</span><br><span class="line">		resolved(value)</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		rejected(value)</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>Promise构造函数接受一个函数作为参数，这个函数有两个参数resolved，rejected，而这两个参数也是函数，resolved的作用是在异步操作成功时调用，并将异步操作的结果作为参数传递出去，相反rejected的作用则是在异步操作失败时调用，并将异步操作的结果作为参数传递出去。</p>
+<h4 id="then方法"><a href="#then方法" class="headerlink" title="then方法"></a>then方法</h4><pre><code>实例化Promise构造函数后，我们调用then方法
+</code></pre>
 ]]></content>
   </entry>
 </search>

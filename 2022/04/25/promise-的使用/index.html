@@ -20,27 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"pla-31695.github.io.","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.10.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-  <meta name="description" content="reduce的使用reduce是干嘛的reduce是js操作数组的方法，语法如下： 1arr.reduce(callback,[initialValue])  callback 回调函数（包含四个参数） 累加器 （返回上次回调函数的返回值，或者是初始值[initialValue]） 当前索引值 item 当前索引 index 调用reduce的数组   initialValue （可选，作为回调函">
+  <meta name="description" content="PromisePromise是一种解决地狱回调的方案，有着非常优雅的写法，搭配async await可以让异步看起来像同步编程。  特点promise有三种状态： * pending  状态（进行中） * resolved 状态（成功） * rejected 状态（失败）   值得注意的是Promise的状态改变就不会再变了 用法创建Promise实例  123456let promise &#x3D; n">
 <meta property="og:type" content="website">
-<meta property="og:title" content="关于reduce的使用">
-<meta property="og:url" content="https://pla-31695.github.io./2022/02/27/%E5%85%B3%E4%BA%8Ereduce%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:title" content="promise 的使用">
+<meta property="og:url" content="https://pla-31695.github.io./2022/04/25/promise-%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="31695">
-<meta property="og:description" content="reduce的使用reduce是干嘛的reduce是js操作数组的方法，语法如下： 1arr.reduce(callback,[initialValue])  callback 回调函数（包含四个参数） 累加器 （返回上次回调函数的返回值，或者是初始值[initialValue]） 当前索引值 item 当前索引 index 调用reduce的数组   initialValue （可选，作为回调函">
+<meta property="og:description" content="PromisePromise是一种解决地狱回调的方案，有着非常优雅的写法，搭配async await可以让异步看起来像同步编程。  特点promise有三种状态： * pending  状态（进行中） * resolved 状态（成功） * rejected 状态（失败）   值得注意的是Promise的状态改变就不会再变了 用法创建Promise实例  123456let promise &#x3D; n">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-02-27T03:26:13.000Z">
-<meta property="article:modified_time" content="2022-04-19T14:55:18.984Z">
+<meta property="article:published_time" content="2022-04-25T13:08:00.000Z">
+<meta property="article:modified_time" content="2022-04-25T13:41:49.705Z">
 <meta property="article:author" content="Bug工程师">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://pla-31695.github.io./2022/02/27/%E5%85%B3%E4%BA%8Ereduce%E7%9A%84%E4%BD%BF%E7%94%A8/">
+<link rel="canonical" href="https://pla-31695.github.io./2022/04/25/promise-%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://pla-31695.github.io./2022/02/27/%E5%85%B3%E4%BA%8Ereduce%E7%9A%84%E4%BD%BF%E7%94%A8/","path":"2022/02/27/关于reduce的使用/","title":"关于reduce的使用"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://pla-31695.github.io./2022/04/25/promise-%E7%9A%84%E4%BD%BF%E7%94%A8/","path":"2022/04/25/promise-的使用/","title":"promise 的使用"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>关于reduce的使用 | 31695</title>
+<title>promise 的使用 | 31695</title>
   
 
 
@@ -147,7 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#reduce%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">reduce的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#reduce%E6%98%AF%E5%B9%B2%E5%98%9B%E7%9A%84"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">reduce是干嘛的</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise"><span class="nav-number">1.</span> <span class="nav-text">Promise</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#then%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">then方法</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -220,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://pla-31695.github.io./2022/02/27/%E5%85%B3%E4%BA%8Ereduce%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://pla-31695.github.io./2022/04/25/promise-%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -233,7 +233,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          关于reduce的使用
+          promise 的使用
         </h1>
 
         <div class="post-meta-container">
@@ -243,15 +243,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2022-02-27 11:26:13" itemprop="dateCreated datePublished" datetime="2022-02-27T11:26:13+08:00">2022-02-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-19 22:55:18" itemprop="dateModified" datetime="2022-04-19T22:55:18+08:00">2022-04-19</time>
+      <time title="Created: 2022-04-25 21:08:00 / Modified: 21:41:49" itemprop="dateCreated datePublished" datetime="2022-04-25T21:08:00+08:00">2022-04-25</time>
     </span>
 
   
@@ -271,30 +265,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="reduce的使用"><a href="#reduce的使用" class="headerlink" title="reduce的使用"></a>reduce的使用</h1><h4 id="reduce是干嘛的"><a href="#reduce是干嘛的" class="headerlink" title="reduce是干嘛的"></a>reduce是干嘛的</h4><p>reduce是js操作数组的方法，语法如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.reduce(callback,[initialValue])</span><br></pre></td></tr></table></figure>
-<ul>
-<li>callback 回调函数（包含四个参数）<ul>
-<li>累加器 （返回上次回调函数的返回值，或者是初始值[initialValue]）</li>
-<li>当前索引值 item</li>
-<li>当前索引 index</li>
-<li>调用reduce的数组</li>
-</ul>
-</li>
-<li>initialValue （可选，作为回调函数的第一个返回值，如果未传参，则累加器将数组的第一个值作为默认值，item直接跳转到第二个值）</li>
-</ul>
-<p>例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const arr = [&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;,&#x27;4&#x27;]</span><br><span class="line">        let sum = arr.reduce((acc,cur)=&gt; &#123;</span><br><span class="line">            console.log(&#x27;acc&#x27;+acc)</span><br><span class="line">            console.log(&#x27;cur&#x27;+cur)</span><br><span class="line">            return acc</span><br><span class="line">        &#125;)</span><br><span class="line">console.log(sum);</span><br></pre></td></tr></table></figure>
-<p>输出如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">acc1 </span><br><span class="line">cur2</span><br><span class="line">acc1</span><br><span class="line">cur3</span><br><span class="line">acc1</span><br><span class="line">cur4</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-<p>难免有些抽象，我们可以和最常用的for循环来比较：</p>
-<ul>
-<li>两个函数的相同点都是遍历一个数组</li>
-<li>不同点在于for循环是将每个item项进行处理，比如 item+&#x3D;1 ，得到一个新的数组；<br>而reduce函数的主要精髓在于它的累加器，他最后返回的就是他的累加器；拿例子来说</li>
-<li>计算出数组中元素出现的次数<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var names = [&#x27;Alice&#x27;, &#x27;Bob&#x27;, &#x27;Tiff&#x27;, &#x27;Bruce&#x27;, &#x27;Alice&#x27;];</span><br><span class="line">let obj = names.reduce((res,item)=&gt;&#123;</span><br><span class="line">    if(item in res)&#123;</span><br><span class="line">        res[item]++</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        res[item] = 1</span><br><span class="line">    &#125;</span><br><span class="line">    return res</span><br><span class="line">&#125;,&#123;&#125;)</span><br><span class="line">console.log(obj)</span><br></pre></td></tr></table></figure>
-结果如下<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;Alice: 2, Bob: 1, Tiff: 1, Bruce: 1&#125;</span><br></pre></td></tr></table></figure>
-思路是统计个数需要用对象来保存，所以最后我们要得到一个对象，即要让reduce给我们返回一个对象，故我们需要设置空对象为初始值，然后遍历数组，返回的对象有该值就加1，没有就赋值为1。</li>
-</ul>
+        <h4 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h4><pre><code>Promise是一种解决地狱回调的方案，有着非常优雅的写法，搭配async await可以让异步看起来像同步编程。
+</code></pre>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><pre><code>promise有三种状态：
+* pending  状态（进行中）
+* resolved 状态（成功）
+* rejected 状态（失败）
+</code></pre>
+<p> 值得注意的是Promise的状态改变就不会再变了</p>
+<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><pre><code>创建Promise实例
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let promise = new Promise((resolved,rejected)=&gt;&#123;</span><br><span class="line">	if(&#x27;操作成功&#x27;)&#123;</span><br><span class="line">		resolved(value)</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		rejected(value)</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>Promise构造函数接受一个函数作为参数，这个函数有两个参数resolved，rejected，而这两个参数也是函数，resolved的作用是在异步操作成功时调用，并将异步操作的结果作为参数传递出去，相反rejected的作用则是在异步操作失败时调用，并将异步操作的结果作为参数传递出去。</p>
+<h4 id="then方法"><a href="#then方法" class="headerlink" title="then方法"></a>then方法</h4><pre><code>实例化Promise构造函数后，我们调用then方法
+</code></pre>
 
     </div>
 
@@ -308,14 +293,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/02/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82%E7%9A%84%E5%85%B7%E4%BD%93%E8%BF%87%E7%A8%8B/" rel="prev" title="浏览器向服务器发送请求的具体过程">
-                  <i class="fa fa-chevron-left"></i> 浏览器向服务器发送请求的具体过程
+                <a href="/2022/03/18/vuex%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="vuex的使用">
+                  <i class="fa fa-chevron-left"></i> vuex的使用
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/03/08/%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2github%E3%80%81gitee%E5%92%8Cconding/" rel="next" title="同时部署github、gitee和conding">
-                  同时部署github、gitee和conding <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
